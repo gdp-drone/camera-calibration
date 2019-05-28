@@ -100,7 +100,7 @@ bool CVCalibration::startStreamingCalibration(VideoCapture vid, string window) {
   return 1;
 }
 
-bool isCalibrated() {
+bool CVCalibration::isCalibrated() {
   return calibrated;
 }
 
