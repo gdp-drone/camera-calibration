@@ -11,7 +11,7 @@ using namespace cv;
 using namespace std;
 
 int main(int argc, char **argv) {
-  VideoCapture vid(0);
+  VideoCapture vid(1);
   
   if (!vid.isOpened()) return 0;
   
@@ -24,9 +24,12 @@ int main(int argc, char **argv) {
   cout << "Calibration has ended";
   if(c.isCalibrated()) {
     cout << " successfully" << endl;
-    string filename = argc > 1 ? argv[1] : "CameraMatrix.txt";
-    c.saveCalibrationMatrices(filename);
-    cout << "The camera parameters are saved in " << filename << endl;
+    string filename = argc > 1 ? argv[1] : "CameraMatrix2.txt";
+    if(c.saveCalibrationMatrices(filename)) {
+      cout << "The camera parameters are saved in " << filename << endl;
+    } else {
+      cout << "The camera parameters could not be saved in " << filename << endl;
+    }
   } else {
     cout << " unsuccessfully" << endl;
   }

@@ -8,8 +8,6 @@ using namespace cv;
 using namespace std;
 
 class CVCalibration {
-  Mat distCoeffs;
-  Mat cameraMatrix = Mat::eye(3, 3, CV_64F);
   Size chessboardDimensions;
   float chessboardTileSize;
   int framesPerSecond = 20;
@@ -22,6 +20,8 @@ class CVCalibration {
   void getCameraMatrices();
   
 public:
+  Mat distCoeffs;
+  Mat cameraMatrix = Mat::eye(3, 3, CV_64F);
   CVCalibration(Size chessboardDimensions, float chessboardTileSize);
   bool startStreamingCalibration(VideoCapture vid, string window);
   bool isCalibrated();
