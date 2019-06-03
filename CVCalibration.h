@@ -20,10 +20,12 @@ class CVCalibration {
   void getCameraMatrices();
   
 public:
+  explicit CVCalibration(string fname);
+  CVCalibration(Size chessboardDimensions, float chessboardTileSize);
+  
   Mat distCoeffs;
   Mat cameraMatrix = Mat::eye(3, 3, CV_64F);
-  CVCalibration() = default;
-  CVCalibration(Size chessboardDimensions, float chessboardTileSize);
+  
   bool startStreamingCalibration(VideoCapture vid, string window);
   bool isCalibrated();
   bool saveCalibrationMatrices(string fname);

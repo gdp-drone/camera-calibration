@@ -146,3 +146,7 @@ bool CVCalibration::loadCalibrationMatrices(string fname) {
   }
   return false;
 }
+
+CVCalibration::CVCalibration(string fname) {
+  loadCalibrationMatrices(fname);
+}
