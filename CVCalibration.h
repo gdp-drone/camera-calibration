@@ -23,7 +23,7 @@ public:
   explicit CVCalibration(string fname);
   CVCalibration(Size chessboardDimensions, float chessboardTileSize);
   
-  Mat distCoeffs;
+  Mat distCoeffs = Mat::zeros(1, 5, CV_64F);
   Mat cameraMatrix = Mat::eye(3, 3, CV_64F);
   
   bool startStreamingCalibration(VideoCapture vid, string window);
